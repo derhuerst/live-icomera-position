@@ -1,0 +1,33 @@
+{
+	"name": "live-icomera-position",
+	"description": "Live vehicle geolocation, taken from the on-board Icomera WiFi system.",
+	"version": "1.0.0",
+	"main": "index.js",
+	"files": [
+		"index.js",
+		"example.js"
+	],
+	"keywords": [
+		"icomera",
+		"wifi",
+		"gps",
+		"geolocation",
+		"flixbus"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/live-icomera-position",
+	"repository": "derhuerst/live-icomera-position",
+	"bugs": "https://github.com/derhuerst/live-icomera-position/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=10"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+	},
+	"scripts": {
+		"test": "node test.js",
+		"prepublishOnly": "npm test"
+	}
+}
