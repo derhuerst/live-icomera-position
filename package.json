@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"files": [
 		"index.js",
+		"lib",
 		"example.js"
 	],
 	"keywords": [
@@ -23,6 +24,10 @@
 		"node": ">=10"
 	},
 	"dependencies": {
+		"fetch-ponyfill": "^6.1.0",
+		"parse-jsonp": "^2.0.0",
+		"pinkie-promise": "^2.0.1",
+		"query-string": "^6.11.0"
 	},
 	"devDependencies": {
 	},
