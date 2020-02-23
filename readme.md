@@ -19,8 +19,40 @@ npm install live-icomera-position
 
 ## Usage
 
+`asStream()` returns a [readable stream](https://nodejs.org/api/stream.html#stream_class_stream_readable) in [object mode](https://nodejs.org/api/stream.html#stream_object_mode).
+
 ```js
-todo
+const {asStream} = require('live-icomera-position')
+const ndjson = require('ndjson')
+
+const positions = asStream()
+positions.on('error', console.error)
+positions
+.pipe(ndjson.stringify())
+.pipe(process.stdout)
+```
+
+An individual data point will look like this:
+
+```js
+{
+	latitude: 50.9069,
+	longitude: 7.0649,
+	altitude: 36.9,
+	speed: 97, // km/h
+	nrOfSatellites: 8,
+	mode: '3' // unknown
+}
+```
+
+You can also use the [`EventEmitter`](https://nodejs.org/api/events.html#events_class_eventemitter)-based API:
+
+```js
+const {asEventEmitter} = require('live-icomera-position')
+
+const positions = asEventEmitter()
+positions.on('error', console.error)
+positions.on('data', data => console.log(data))
 ```
 
 
