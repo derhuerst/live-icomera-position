@@ -41,7 +41,7 @@ An individual data point will look like this:
 	altitude: 36.9,
 	speed: 97, // km/h
 	nrOfSatellites: 8,
-	mode: '3' // unknown
+	mode: '3' // see below
 }
 ```
 
@@ -55,6 +55,18 @@ positions.on('error', console.error)
 positions.on('data', data => console.log(data))
 ```
 
+### Mode
+
+The mode value in a datapoint appears familiar with the one a widespread gps client called GPSD uses.
+We don't have any confirmation that the icomera system uses GPSD, but if it did the mode values would mean following:
+| Value | State                          |
+|-------|--------------------------------|
+| 0     | no value seen.                 |
+| 1     | no position.                   |
+| 2     | 2D position, no altitude.      |
+| 3     | 3D position, altitude present. |
+
+source: [GPSD Documentation](https://gpsd.gitlab.io/gpsd/gpsd_json.html)
 
 ## Contributing
 
