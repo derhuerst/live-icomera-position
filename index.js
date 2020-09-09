@@ -6,18 +6,19 @@ const {Readable} = require('stream')
 
 const livePositionsAsEventEmitter = (opt = {}) => {
 	const {interval} = {interval: 3 * 1000, ...opt}
-
 	const out = new EventEmitter()
+
 	const fetch = () => {
 		fetchPosition()
 		.then(data => out.emit('data', data))
 		.catch(err => out.emit('error', err))
+		timer = setTimeout(fetch, interval)
 	}
+	let timer = setTimeout(fetch, interval)
 
-	let timer = setInterval(fetch, interval)
 	out.stop = () => {
 		if (timer === null) return;
-		clearInterval(timer)
+		clearTimeout(timer)
 		timer = null
 	}
 
@@ -27,19 +28,24 @@ const livePositionsAsEventEmitter = (opt = {}) => {
 const livePositionsAsReadableStream = (opt = {}) => {
 	const {interval} = {interval: 3 * 1000, ...opt}
 
-	const fetch = () => {
-		fetchPosition()
-		.then(data => out.push(data))
-		.catch(err => out.destroy(err))
+	const fetch = async () => {
+		try {
+			const data = await fetchPosition()
+			out.push(data)
+		} catch (err) {
+			out.destroy(err)
+			return;
+		}
+		timer = setTimeout(fetch, interval)
 	}
-	let timer = setInterval(fetch, interval)
+	let timer = setTimeout(fetch, interval)
 
 	const out = new Readable({
 		objectMode: true,
 		read: () => {},
 		destroy: (err, cb) => {
 			if (timer !== null) {
-				clearInterval(timer)
+				clearTimeout(timer)
 				timer = null
 			}
 			cb(err)
