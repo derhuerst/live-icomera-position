@@ -1,7 +1,7 @@
 {
 	"name": "live-icomera-position",
 	"description": "Live vehicle geolocation, taken from the on-board Icomera WiFi system.",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"main": "index.js",
 	"files": [
 		"index.js",
@@ -30,10 +30,12 @@
 		"query-string": "^6.11.0"
 	},
 	"devDependencies": {
+		"eslint": "^7.24.0",
 		"ndjson": "^1.5.0"
 	},
 	"scripts": {
 		"test": "node test.js",
-		"prepublishOnly": "npm test"
+		"lint": "eslint .",
+		"prepublishOnly": "npm run lint && npm test"
 	}
 }
