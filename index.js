@@ -5,7 +5,14 @@ const {EventEmitter} = require('events')
 const {Readable} = require('stream')
 
 const livePositionsAsEventEmitter = (opt = {}) => {
-	const {interval} = {interval: 3 * 1000, ...opt}
+	const {
+		interval,
+		timeout,
+	} = {
+		interval: 3000, // 3s
+		timeout: 2500, // 2.5s
+		...opt,
+	}
 	const out = new EventEmitter()
 
 	const fetch = () => {
@@ -26,11 +33,18 @@ const livePositionsAsEventEmitter = (opt = {}) => {
 }
 
 const livePositionsAsReadableStream = (opt = {}) => {
-	const {interval} = {interval: 3 * 1000, ...opt}
+	const {
+		interval,
+		timeout,
+	} = {
+		interval: 3000, // 3s
+		timeout: 2500, // 2.5s
+		...opt,
+	}
 
 	const fetch = async () => {
 		try {
-			const data = await fetchPosition()
+			const data = await fetchPosition({timeout})
 			out.push(data)
 		} catch (err) {
 			out.destroy(err)
