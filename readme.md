@@ -68,6 +68,18 @@ We don't have any confirmation that the icomera system uses GPSD, but if it did 
 
 source: [GPSD Documentation](https://gpsd.gitlab.io/gpsd/gpsd_json.html)
 
+
+## Related
+
+- [`live-cd-wifi-position`](htttps://github.com/derhuerst/live-cd-wifi-position) – Live vehicle geolocation of Czech Railways trains, taken from the on-board WiFi system.
+- [`live-gomedia-position`](htttps://github.com/derhuerst/live-gomedia-position) – Live vehicle geolocation, taken from the GoMedia on-board WiFi entertainment system.
+- [`wifi-on-ice-position-stream`](https://github.com/derhuerst/wifi-on-ice-position-stream) – A stream of positions of German Railways ICE trains, taken from the on-board WiFi.
+- [`sncf-wifi-portal-client`](https://github.com/derhuerst/sncf-wifi-portal-client) – Query information from the SNCF WiFi portal in French TGV trains.
+- [`digital-im-regio-portal-client`](https://github.com/derhuerst/digital-im-regio-portal-client) – Query information from the Digital im Regio portal in German Regio trains.
+- [`cd-wifi-client`](https://github.com/derhuerst/cd-wifi-client) – A client for the onboard WiFi portal of České dráhy (Czech Railways) trains.
+- [`portale-regionale-wifi-position`](https://github.com/derhuerst/portale-regionale-wifi-position) – Query information from the *Portale Regionale* WiFi portal in Trenitalia (Italian Railways) trains.
+
+
 ## Contributing
 
 If you have a question or need support using `live-icomera-position`, please double-check your code and setup first. If you think you have found a bug or want to propose a feature, use [the issues page](https://github.com/derhuerst/live-icomera-position/issues).
