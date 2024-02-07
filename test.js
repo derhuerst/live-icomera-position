@@ -1,4 +1,4 @@
-import {strictEqual as eql, ok, ifError} from 'node:assert'
+import {strictEqual as eql, ok} from 'node:assert'
 import {fetchPosition} from './lib/fetch-position.js'
 
 {

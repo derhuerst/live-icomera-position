@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import ndjson from 'ndjson'
 import {asEventEmitter, asStream} from './index.js'
 

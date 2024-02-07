@@ -3,7 +3,6 @@
 **Live vehicle geolocation, taken from the on-board Icomera WiFi system.**
 
 [![npm version](https://img.shields.io/npm/v/live-icomera-position.svg)](https://www.npmjs.com/package/live-icomera-position)
-[![build status](https://api.travis-ci.org/derhuerst/live-icomera-position.svg?branch=master)](https://travis-ci.org/derhuerst/live-icomera-position)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/live-icomera-position.svg)
 ![minimum Node.js version](https://img.shields.io/node/v/live-icomera-position.svg)
 [![chat with me on Gitter](https://img.shields.io/badge/chat%20with%20me-on%20gitter-512e92.svg)](https://gitter.im/derhuerst)
