@@ -22,14 +22,15 @@ npm install live-icomera-position
 `asStream()` returns a [readable stream](https://nodejs.org/api/stream.html#stream_class_stream_readable) in [object mode](https://nodejs.org/api/stream.html#stream_object_mode).
 
 ```js
-const {asStream} = require('live-icomera-position')
-const ndjson = require('ndjson')
+import {pipeline} from 'node:stream/promises'
+import {asStream} from 'live-icomera-position'
+import ndjson from 'ndjson'
 
-const positions = asStream()
-positions.on('error', console.error)
-positions
-.pipe(ndjson.stringify())
-.pipe(process.stdout)
+await pipeline(
+	asStream(),
+	ndjson.stringify(),
+	process.stdout,
+)
 ```
 
 An individual data point will look like this:
@@ -48,7 +49,7 @@ An individual data point will look like this:
 You can also use the [`EventEmitter`](https://nodejs.org/api/events.html#events_class_eventemitter)-based API:
 
 ```js
-const {asEventEmitter} = require('live-icomera-position')
+import {asEventEmitter} from 'live-icomera-position'
 
 const positions = asEventEmitter()
 positions.on('error', console.error)

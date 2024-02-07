@@ -1,8 +1,6 @@
-'use strict'
-
-const fetchPosition = require('./lib/fetch-position')
-const {EventEmitter} = require('events')
-const {Readable} = require('stream')
+import {EventEmitter} from 'node:events'
+import {Readable} from 'node:stream'
+import {fetchPosition} from './lib/fetch-position.js'
 
 const livePositionsAsEventEmitter = (opt = {}) => {
 	const {
@@ -68,8 +66,8 @@ const livePositionsAsReadableStream = (opt = {}) => {
 	return out
 }
 
-module.exports = {
+export {
 	fetchPosition,
-	asEventEmitter: livePositionsAsEventEmitter,
-	asStream: livePositionsAsReadableStream,
+	livePositionsAsEventEmitter as asEventEmitter,
+	livePositionsAsReadableStream as asStream,
 }

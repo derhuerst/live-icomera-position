@@ -1,7 +1,5 @@
-'use strict'
-
-const ndjson = require('ndjson')
-const {asEventEmitter, asStream} = require('.')
+import ndjson from 'ndjson'
+import {asEventEmitter, asStream} from './index.js'
 
 const onError = (err) => {
 	console.error(err)

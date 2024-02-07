@@ -1,10 +1,8 @@
-'use strict'
+import {strictEqual as eql, ok, ifError} from 'node:assert'
+import {fetchPosition} from './lib/fetch-position.js'
 
-const {strictEqual: eql, ok, ifError} = require('assert')
-const fetchPosition = require('./lib/fetch-position')
-
-fetchPosition()
-.then((_) => {
+{
+	const _ = await fetchPosition()
 	console.info(_)
 
 	eql(typeof _.latitude, 'number')
@@ -36,8 +34,4 @@ fetchPosition()
 	// todo: _.mode
 
 	console.info('looks good ✔︎')
-})
-.catch((err) => {
-	console.error(err)
-	process.exit(1)
-})
+}
