@@ -18,6 +18,22 @@ npm install live-icomera-position
 
 ## Usage
 
+### command-line interface (CLI)
+
+```
+Usage:
+    live-icomera-postion
+Options:
+    --interval <ms>      -i <ms>  How often to fetch the current position.
+                                    Default: 3000
+    --timeout <ms>       -t <ms>  How long to wait when fetching a position.
+                                    Default: 2500
+Examples:
+	live-icomera-postion -i 5000 >>positions.ndjson
+```
+
+### as a library
+
 `asStream()` returns a [readable stream](https://nodejs.org/api/stream.html#stream_class_stream_readable) in [object mode](https://nodejs.org/api/stream.html#stream_object_mode).
 
 ```js

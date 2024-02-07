@@ -4,7 +4,11 @@
 	"version": "2.0.0",
 	"type": "module",
 	"main": "index.js",
+	"bin": {
+		"live-icomera-position": "./cli.js"
+	},
 	"files": [
+		"cli.js",
 		"index.js",
 		"lib",
 		"example.js"
@@ -16,7 +20,8 @@
 		"geolocation",
 		"flixbus",
 		"bus",
-		"coach"
+		"coach",
+		"cli"
 	],
 	"author": "Jannis R <mail@jannisr.de>",
 	"homepage": "https://github.com/derhuerst/live-icomera-position",
