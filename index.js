@@ -16,7 +16,7 @@ const livePositionsAsEventEmitter = (opt = {}) => {
 	const out = new EventEmitter()
 
 	const fetch = () => {
-		fetchPosition()
+		fetchPosition({timeout})
 		.then(data => out.emit('data', data))
 		.catch(err => out.emit('error', err))
 		timer = setTimeout(fetch, interval)
